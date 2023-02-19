@@ -1,0 +1,18 @@
+#toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.toolbar-item {
+    font-size: 20px;
+    transition: font-size 0.7s;
+
+
+    &:hover {
+        opacity: 70%;
+        cursor: pointer;
+        // transition the font size bigger without affecting the other tabs
+        font-size: 30px;
+    }
+}
