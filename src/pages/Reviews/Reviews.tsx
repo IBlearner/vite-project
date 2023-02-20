@@ -6,8 +6,9 @@ const Reviews = () => {
 
     useEffect(() => {
         const getReviewsData = async () => {
-            let res = await fetch("http://localhost:3001");
-            let data = await res.json()
+            let res = await fetch("http://localhost:3001/reviews");
+            let data = await res.json();
+            console.log(data)
             setReviews(data);
         }
 
@@ -15,17 +16,17 @@ const Reviews = () => {
             console.log(error)
         });
 
-        (async() => {
-            let res = await fetch("http://localhost:3002");
-            // Handle errors
-            console.log(await res.text());
-            if (!res.ok) {
-                throw new Error(`${res.status} rrrrerror: ${res.text()}`);
-            }
-            let data = await res.json();
-            console.log(data)
-            setReviews(data);
-        })();
+        // (async() => {
+        //     let res = await fetch("http://localhost:3002");
+        //     // Handle errors
+        //     console.log(await res.text());
+        //     if (!res.ok) {
+        //         throw new Error(`${res.status} rrrrerror: ${res.text()}`);
+        //     }
+        //     let data = await res.json();
+        //     console.log(data)
+        //     setReviews(data);
+        // })();
     }, [])
 
     return (
