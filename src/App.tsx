@@ -8,7 +8,7 @@ import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  const [page, setPage] = useState("Contact")
+  const [page, setPage] = useState("Home")
 
   const getPage = () => {
     switch (page) {

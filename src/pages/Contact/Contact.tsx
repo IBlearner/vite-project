@@ -1,6 +1,13 @@
 import "./Contact.scss";
 
 const Contact = () => {
+    const submitForm = () => {
+        const post = fetch("http://localhost:3001/", {
+            method: "POST"
+        })
+        console.log(post)
+    }
+
     const messageForm = () => {
         return (
             <form action="submit">
@@ -26,7 +33,7 @@ const Contact = () => {
                 <input type="field" id="message" name="enquiring" value="" required placeholder="Please enter up to 100 characters" /><br />
                 {/* <label htmlFor="message">LAM driving school</label><br /> */}
 
-                <input type="submit" value="Submit"></input>
+                <input type="submit" value="Submit" onSubmit={() => submitForm()}></input>
             </form>
         )
     }

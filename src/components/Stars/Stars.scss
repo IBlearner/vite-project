@@ -1,0 +1,21 @@
+.star-group {
+    display: flex;
+    flex-direction: row;
+
+    // May need this?
+    // background-color: transparent;
+}
+
+.star {
+    min-width: 20px;
+    min-height: 20px;
+    border: gold 1px solid;
+
+    &.filled {
+        background-color: gold;
+    }
+    
+    &.empty {
+        background-color: white;
+    }
+}

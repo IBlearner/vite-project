@@ -1,0 +1,50 @@
+.review-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: 1px solid blue;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px;
+    min-width: 600px;
+
+    // border: 1px solid white;
+
+    >.review-person {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: end;
+        width: 100px;
+        border: 1px solid black;
+
+
+        margin-right: 10px;
+    }
+
+    >.review-main {
+        position: relative;
+
+        width: 100%;
+        border: 1px solid white;
+        padding: 20px 20px;
+
+        // >.review-button {
+        //     position: absolute ;
+        //     right: 0;
+        //     bottom: 0;
+        //     margin: 0 6px;
+        // }
+    
+        >.review-date {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 0 6px;
+        }
+    }
+}
