@@ -11,7 +11,7 @@ const Contact = () => {
         message: "123"
     }
     const [contactForm, setContactForm] = useState<IContactForm>(contactFormEmpty);
-    const [formRecieved, setFormRecieved] = useState(false);
+    const [formRecieved, setFormRecieved] = useState<boolean>(false);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event)
@@ -25,12 +25,13 @@ const Contact = () => {
         const res = await fetch("http://localhost:3001/", {
             method: "POST"
         });
-        const data = await res.json();
+
+        // Change BE response to be json format
+        // const data = await res.json();
         if (res.ok) {
             setContactForm(contactFormEmpty);
-            console.log(data);
 
-            // Replace the form with THANKS, YOUR MESSAGE HAS BEEN RECEIVED
+            setFormRecieved(true);
         }
     }
 
@@ -63,6 +64,15 @@ const Contact = () => {
         )
     }
 
+    const submitConfirmationMessage = () => {
+        return (
+            <div>
+                <p>Your message has been recieved.</p>
+                <p>Thank you!</p>
+            </div>
+        )
+    }
+
     return (
         <div>
             <h1>Contact me</h1>
@@ -71,7 +81,9 @@ const Contact = () => {
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             <h2>Phone</h2>
             <p>0411111111</p>
-            {messageForm()}
+            <div id="form-field">
+                { !formRecieved ? messageForm() : submitConfirmationMessage() }
+            </div>
         </div>
     )
 }
