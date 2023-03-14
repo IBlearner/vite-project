@@ -1,10 +1,32 @@
 #Home {
-    font-size:70px;background-color:rgba(10, 55, 30, 0.684);
-    font-family:Georgia, 'Times New Roman', Times, serif;text-align:center;
-    border:2px solid rgba(0, 0, 0, 0.322);
+    font-size:70px;
+    font-family:'Rampart One', cursive;text-align:center;
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 10%;
     padding: 30px; 
-    color: white;
-    text-shadow: 2px 2px 8px lightblue;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 8px rgb(255, 247, 0);
+}
+
+#viethome {
+    font-size:60px;
+    font-family:Georgia, 'Times New Roman', Times, serif;text-align:right;
+}
+
+#solarpanels {
+    position:absolute;
+    width:200px;
+    height:120px;
+    top:100px;
+    left:400px; 
+}
+#solar {
+    position:absolute;
+    width:200px;
+    height:120px;
+    top:100px;
+    right:400px; 
+    transform: scaleX(-1);
 }
 
 #mee {
