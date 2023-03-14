@@ -1,21 +1,21 @@
 export const views = {
     home: {
-        name: "home",
+        name: "HOME",
         routeName: "home",
         friendlyName: "Home"
     },
     contact: {
-        name: "contact",
+        name: "CONTACT",
         routeName: "contact",
         friendlyName: "Contact me"
     },
     about: {
-        name: "about",
+        name: "ABOUT",
         routeName: "about",
         friendlyName: "About me"
     },
     reviews: {
-        name: "reviews",
+        name: "REVIEWS",
         routeName: "reviews",
         friendlyName: "Reviews"
     }
