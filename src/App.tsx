@@ -6,7 +6,7 @@ import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./components/Footer/Footer";
-import { views } from "./constants";
+import { views } from "./common/constants";
 
 function App() {
   const [page, setPage] = useState("Contact");

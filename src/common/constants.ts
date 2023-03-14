@@ -20,5 +20,3 @@ export const views = {
         friendlyName: "Reviews"
     }
 }
-
-// export default constants;

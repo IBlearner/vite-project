@@ -1,23 +1,48 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import "./Contact.scss";
+import { IContactForm } from "src/common/interfaces";
 
 const Contact = () => {
-    const submitForm = () => {
-        const post = fetch("http://localhost:3001/", {
+    const contactFormEmpty = {
+        fname: "ewr",
+        email: "wer@wer",
+        phone: "0455555555",
+        enquiring: "12",
+        message: "123"
+    }
+    const [contactForm, setContactForm] = useState<IContactForm>(contactFormEmpty);
+    const [formRecieved, setFormRecieved] = useState(false);
+
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log(event)
+        setContactForm({...contactForm, [event.target.name]: event.target.value});
+    }
+
+    const submitForm = async (event: FormEvent) => {
+        event.preventDefault();
+
+
+        const res = await fetch("http://localhost:3001/", {
             method: "POST"
-        })
-        console.log(post)
+        });
+        const data = await res.json();
+        if (res.ok) {
+            setContactForm(contactFormEmpty);
+            console.log(data);
+
+            // Replace the form with THANKS, YOUR MESSAGE HAS BEEN RECEIVED
+        }
     }
 
     const messageForm = () => {
         return (
-            <form action="submit">
-                
+            <form action="submit" onSubmit={submitForm}>
                 <label htmlFor="fname">Name:</label><br />
-                <input type="text" id="fname" name="fname" value="" required placeholder="Please enter your first name"/><br />
-                <label htmlFor="fname">Email:</label><br />
-                <input type="email" id="email" name="email" value="" required placeholder="Please enter your email"/><br />
-                <label htmlFor="fname">Contact number:</label><br />
-                <input type="number" id="phone" name="phone" value="" required placeholder="Please enter your contact number"/>
+                <input type="text" id="fname" name="fname" value={contactForm.fname} required placeholder="Please enter your first name" onChange={handleInputChange} /><br />
+                <label htmlFor="email">Email:</label><br />
+                <input type="email" id="email" name="email" value={contactForm.email} required placeholder="Please enter your email" onChange={handleInputChange} /><br />
+                <label htmlFor="phone">Contact number:</label><br />
+                <input type="tel" id="phone" name="phone" pattern="[0]{1}[1-9]{1}[0-9]{8}" value={contactForm.phone} required placeholder="Please enter your contact number" onChange={handleInputChange} />
 
                 <p>Which would you like to enquire about?</p>
                 <input type="radio" id="driving" name="enquiring" value="driving" />
@@ -30,10 +55,10 @@ const Contact = () => {
                 <label htmlFor="other">Other</label><br />
 
                 <p>What would you like to ask?</p>
-                <input type="field" id="message" name="enquiring" value="" required placeholder="Please enter up to 100 characters" /><br />
+                <input type="field" id="message" name="message" value={contactForm.message} required placeholder="Please enter up to 100 characters" onChange={handleInputChange} /><br />
                 {/* <label htmlFor="message">LAM driving school</label><br /> */}
 
-                <input type="submit" value="Submit" onSubmit={() => submitForm()}></input>
+                <input type="submit" value="Submit" ></input>
             </form>
         )
     }

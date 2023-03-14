@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Reviews.scss";
-import Stars from "../../components/Stars/Stars";
+import Stars from "src/components/Stars/Stars";
 
 interface IReview {
     id: string;
@@ -30,7 +30,7 @@ const Reviews = () => {
 
         getReviewsData()
         .catch((error) => {
-            console.log(error)
+            console.log(error);
         });
         
 

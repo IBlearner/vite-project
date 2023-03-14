@@ -1,5 +1,5 @@
 import "./Toolbar.scss";
-import { views } from "../../constants";
+import { views } from "src/common/constants";
 
 const Toolbar = ({ setPage }: { setPage: Function }) => {
     const viewsData = [views.home, views.about, views.contact, views.reviews];
