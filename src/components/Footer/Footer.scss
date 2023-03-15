@@ -3,4 +3,14 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    font-family: 'Turret Road', cursive;
+    font-size: 30px;
+    .socialmedia {
+        &:hover {
+            opacity: 50%;
+            cursor: pointer;
+            text-shadow: 2px 2px 30px rgb(0, 0, 0);
+        }
+    }
+
 }
