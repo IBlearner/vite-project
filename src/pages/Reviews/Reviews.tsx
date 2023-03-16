@@ -47,6 +47,34 @@ const Reviews = () => {
         // })();
     }, [])
 
+    // const reviewForm = () => {
+    //     return (
+    //         <form action="submit" onSubmit={submitForm}>
+    //             <label htmlFor="name">Name:</label><br />
+    //             <input type="text" id="name" name="name" value={formData.name} required placeholder="Please enter your first name" onChange={handleInputChange} /><br />
+    //             <label htmlFor="email">Email:</label><br />
+    //             <input type="email" id="email" name="email" value={formData.email} required placeholder="Please enter your email" onChange={handleInputChange} /><br />
+    //             <label htmlFor="phone">Contact number:</label><br />
+    //             <input type="tel" id="phone" name="phone" value={formData.phone} required placeholder="Please enter your contact number" onKeyDown={handleKeyPress} onChange={handleInputChange} minLength={10} maxLength={10}/>
+
+    //             <p>Which would you like to enquire about?</p>
+    //             <input type="radio" id="driving" name="enquiring" required value="driving" />
+    //             <label htmlFor="driving">LAM driving school</label><br />
+    //             <input type="radio" id="solar" name="enquiring" required value="solar" />
+    //             <label htmlFor="solar">Diamond Solar</label><br />
+    //             <input type="radio" id="thanksai" name="enquiring" required value="thanksai" />
+    //             <label htmlFor="thanksai">ThanksAI</label><br />
+    //             <input type="radio" id="other" name="enquiring" required value="other" />
+    //             <label htmlFor="other">Other</label><br />
+
+    //             <p>What would you like to ask?</p>
+    //             <textarea name="message" id="message" cols={50} rows={10} required placeholder="Please enter up to 100 characters" value={formData.message} onChange={handleTextareaChange} /><br />
+
+    //             <input type="submit" value="Submit" ></input>
+    //         </form>
+    //     )
+    // }
+
     const getReviewItems = () => {
         return reviews.map((review) => {
             return (
