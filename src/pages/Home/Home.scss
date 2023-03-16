@@ -1,6 +1,7 @@
-#Home {
+#home-title-eng {
     font-size:70px;
-    font-family:'Chakra Petch', cursive;text-align:center;
+    font-family:'Chakra Petch', cursive;
+    text-align:center;
     border:2px solid rgb(91, 86, 86);
     border-radius: 0%;
     border-width: 5px;
@@ -13,19 +14,19 @@
     left: 700px;
 }
 
-.header {
-    position: relative;
-    top: 50px;
-    margin: auto;
-}
-
-#viethome {
+#home-title-viet {
     font-size:60px;
     font-family:Georgia, 'Times New Roman', Times, serif;text-align:right;
     position: relative;
 }
 
-.header img {
+.home-heading {
+    position: relative;
+    top: 50px;
+    margin: auto;
+}
+
+.home-heading img {
     float:right;
     width: 280px;
     height: 300px;
@@ -38,13 +39,9 @@
     font-size:30px;
 }
 
-#abut.me {
+#home-text {
     position: relative;
     font-size:30px;
-}
-
-#abut.me2 {
-    position: relative;
 }
 
 #head3 {
