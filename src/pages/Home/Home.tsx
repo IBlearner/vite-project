@@ -1,32 +1,19 @@
 import "./Home.scss";
+import { IGenericPageContent } from "src/common/interfaces";
 
-const Home = () => {
+const Home = ({ content }: { content: IGenericPageContent }) => {
     return (
         <div>
             <div id="home-header">
                 {/* <img src="/LAM_SAFETY.png" alt="Driving School" /> */}
-                <h1 id="home-title-eng">DUC TINH LAM</h1>
+                <h1 id="home-title">DUC TINH LAM</h1>
             </div>
 
-            <h1 id="home-title-viet">trang chủ</h1>
-            <h2 className="home-heading">heading</h2>
-            <p className="home-text">
-                Lorem i like coke Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <h2 className="home-heading">heading 2</h2>
-            <p className="home-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+            <h1 className="home-heading">{content.heading}</h1>
+            <h2 className="home-subheading">{content.subheading1}</h2>
+            <p className="home-text">{content.text1}</p>
+            <h2 className="home-subheading">{content.subheading2}</h2>
+            <p className="home-text">{content.text2}</p>
         </div>
     );
 };

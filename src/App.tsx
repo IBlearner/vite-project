@@ -1,37 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
-import Toolbar from './components/Toolbar/Toolbar';
+import Toolbar from "./components/Toolbar/Toolbar";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./components/Footer/Footer";
-import { views } from "./common/constants";
+import { views, supportedLanguages, staticContent } from "./common/constants";
+import { ILanguage } from "./common/interfaces";
 
 function App() {
-  const [page, setPage] = useState("Contact");
+    const [page, setPage] = useState("Contact");
+    const [language, setLanguage] = useState<ILanguage>(supportedLanguages.english);
+    const [content, setContent] = useState(staticContent.english);
 
-  const getPage = () => {
-    switch (page) {
-      case views.contact.routeName:
-        return <Contact />
-      case views.about.routeName:
-        return <About />
-      case views.reviews.routeName:
-        return <Reviews />
-      case views.home.routeName:
-      default:
-        return <Home />
-    }
-  }
+    useEffect(() => {
+        switch (language.name) {
+            case "vietnamese":
+                setContent(staticContent.vietnamese);
+                break;
+            case "english":
+            default:
+                setContent(staticContent.english);
+                break;
+        }
+    }, [language]);
 
-  return (
-    <div id="app">
-      <Toolbar setPage={setPage}/>
-        {getPage()}
-      <Footer />
-    </div>
-  )
+    const getPage = () => {
+        switch (page) {
+            case views.contact.routeName:
+                return <Contact content={content.contact} />;
+            case views.about.routeName:
+                return <About content={content.about} />;
+            case views.reviews.routeName:
+                return <Reviews content={content.reviews} />;
+            case views.home.routeName:
+            default:
+                return <Home content={content.home} />;
+        }
+    };
+
+    return (
+        <div id="app">
+            <Toolbar page={page} setPage={setPage} language={language} setLanguage={setLanguage} />
+            {getPage()}
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

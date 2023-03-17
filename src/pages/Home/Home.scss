@@ -1,4 +1,4 @@
-#home-title-eng {
+#home-title {
     font-size: 70px;
     font-family: "Chakra Petch", cursive;
     text-align: center;
@@ -14,27 +14,27 @@
     left: 700px;
 }
 
-#home-title-viet {
+#home-heading {
     font-size: 60px;
     font-family: Georgia, "Times New Roman", Times, serif;
     text-align: right;
     position: relative;
 }
 
-.home-heading {
+.home-subheading {
     position: relative;
     top: 50px;
     margin: auto;
 }
 
-.home-heading img {
+.home-subheading img {
     // float: right;
     // width: 280px;
     // height: 300px;
     // right: 900px;
 }
 
-#home-heading {
+#home-subheading {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 30px;
 }
