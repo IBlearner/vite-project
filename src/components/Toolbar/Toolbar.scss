@@ -4,49 +4,21 @@
     justify-content: space-around; //changed from space-between as wasnt aligned properly
 
     background-color: rgb(204, 199, 199);
+    font-size: 30px;
 
-    #logo {
-        width: 50px;
-        height: 50px;
-
-        background-color: black;
-    }
-}
-
-#toolbar-computer {
-    flex-direction: row;
-}
-
-#toolbar-mobile {
-    justify-content: space-between; //changed from space-between as wasnt aligned properly
-    /* Make the toolbar in mobile mode stick to the bottom */
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 10vh;
-    width: calc(100vw);
-    z-index: 1;
-
-    // background-color: red;
-    background-color: transparent;
-
-    #toolbar-sandwhich {
-        all: unset;
-
-        width: 50px;
-    }
-
-    .toolbar-group {
-        display: flex;
+    &.mobile-mode {
         flex-direction: column;
         position: fixed;
         top: 0;
         align-items: flex-end;
+        justify-content: flex-start;
         width: 100vw;
         height: 100vh;
-        z-index: 1;
+        z-index: 2;
 
-        background-color: rgb(204, 199, 199);
+        background-color: rgba(255, 255, 255);
+        color: #242424;
+        font-size: 20px;
 
         &.toolbar-open {
             right: 0;
@@ -61,22 +33,82 @@
             transition-timing-function: ease;
         }
     }
+
+    &.computer-mode {
+        flex-direction: row;
+    }
 }
 
+.toolbar-mobile {
+    display: flex;
+    justify-content: space-between; //changed from space-between as wasnt aligned properly
+    /* Make the toolbar in mobile mode stick to the bottom */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    width: 100vw;
+    z-index: 1;
+
+    background-color: #1a1a1a;
+
+    > * {
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    .toolbar-logo {
+        height: 100%;
+        font-family: "Chakra Petch", cursive;
+    }
+
+    #toolbar-mobile-language {
+    }
+
+    .toolbar-mobile-sandwhich {
+        //all: unset;
+
+        width: 50px;
+    }
+}
+
+// Create empty space in mobile mode as the toolbar is fixed
+#empty {
+    height: 5vh;
+}
+
+// TODO: check
 .toolbar-item {
     // &:not(#home) {
     //     flex-grow: 1;
     //     color: red;
     // }
 
-    font-size: 30px;
-    transition: font-size 0.7s;
-    color: white;
+    transition: font-size 0.3s;
+    // color: white;
     font-family: "Unbounded", cursive;
 
-    // &>:first {
-    //     font-size: 300px;
-    // }
+    margin-right: 20px;
+
+    &.selected {
+        background-image: linear-gradient(120deg, #d0d0d0 0%, #c7c7c7 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 0.2em;
+        background-position: 0 78%;
+        transition: background-size 0.25s ease-in;
+
+        font-size: 30px;
+
+        // TODO: Add spacing on top of the mobile-only toolbar!!
+        // > :first-child {
+        //     margin-top: 40px;
+        // }
+    }
 
     &:hover {
         opacity: 70%;
