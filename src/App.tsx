@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Toolbar from "./components/Toolbar/Toolbar";
-import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
+import Services from "./pages/Services/Services";
+import Contact from "./pages/Contact/Contact";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./components/Footer/Footer";
 import { views, supportedLanguages, staticContent } from "./common/constants";
@@ -28,10 +29,13 @@ function App() {
 
     const getPage = () => {
         switch (page) {
-            case views.contact.routeName:
-                return <Contact content={content.contact} />;
             case views.about.routeName:
                 return <About content={content.about} />;
+            case views.services.routeName:
+                return <Services content={content.services} />;
+            case views.contact.routeName:
+                return <Contact content={content.contact} />;
+
             case views.reviews.routeName:
                 return <Reviews content={content.reviews} />;
             case views.home.routeName:

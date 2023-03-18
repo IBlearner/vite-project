@@ -7,7 +7,7 @@ import { RiMenuLine } from "react-icons/ri";
 import { FaGlobe } from "react-icons/fa";
 
 const Toolbar = ({ page, setPage, language, setLanguage }: { page: string; setPage: Function; language: ILanguage; setLanguage: Function }) => {
-    const viewsData = [views.home, views.about, views.contact, views.reviews];
+    const viewsData = [views.home, views.about, views.services, views.contact, views.reviews];
     const [isMobileMode, setIsMobileMode] = useState(true);
     // Mobile only - to toggle the toolbar to be opened or closed
     const [isToolbarOpen, setIsToolbarOpen] = useState(false);
