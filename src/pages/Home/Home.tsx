@@ -5,7 +5,6 @@ const Home = ({ content }: { content: IGenericPageContent }) => {
     return (
         <div>
             <div id="home-header">
-                {/* <img src="/LAM_SAFETY.png" alt="Driving School" /> */}
                 <h1 id="home-title">DUC TINH LAM</h1>
             </div>
 
