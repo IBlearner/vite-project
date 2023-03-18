@@ -3,9 +3,9 @@ import "./Footer.scss";
 const Footer = () => {
     return (
         <div id="footer">
-            <div>Facebook</div>
-            <div>Linkedin</div>
-            <div>Instagram</div>
+            <div className="socialmedia">Facebook</div>
+            <div className="socialmedia">Linkedin</div>
+            <div className="socialmedia">Instagram</div>
         </div>
     )
 }
