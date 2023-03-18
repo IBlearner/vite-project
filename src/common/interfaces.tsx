@@ -5,4 +5,26 @@ export interface IContactForm {
     phone: string;
     enquiring: string;
     message: string;
-};
+}
+
+export interface IReview {
+    id: string;
+    message: string;
+    name: string;
+    stars: number;
+}
+
+export interface IGenericPageContent {
+    heading: string;
+    subheading1?: string;
+    subheading2?: string;
+    subheading3?: string;
+    text1: string;
+    text2?: string;
+    text3?: string;
+}
+
+export interface ILanguage {
+    name: string;
+    shortName: string;
+}

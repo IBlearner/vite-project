@@ -1,53 +1,50 @@
-#Home {
-    font-size:70px;
-    font-family:'Chakra Petch', cursive;text-align:center;
-    border:2px solid rgb(91, 86, 86);
+#home-title {
+    font-size: 70px;
+    font-family: "Chakra Petch", cursive;
+    text-align: center;
+    border: 2px solid rgb(91, 86, 86);
     border-radius: 0%;
     border-width: 5px;
-    border:dotted;
-    padding: 80px; 
+    border: dotted;
+    padding: 80px;
     color: rgb(46, 49, 54);
     text-shadow: 2px 2px 8px rgb(99, 99, 97);
-    position: relative;
+    // position: relative;
     max-width: 200px;
     left: 700px;
 }
 
-.header {
+#home-heading {
+    font-size: 60px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-align: right;
+    position: relative;
+}
+
+.home-subheading {
     position: relative;
     top: 50px;
     margin: auto;
 }
 
-#viethome {
-    font-size:60px;
-    font-family:Georgia, 'Times New Roman', Times, serif;text-align:right;
-    position: relative;
+.home-subheading img {
+    // float: right;
+    // width: 280px;
+    // height: 300px;
+    // right: 900px;
 }
 
-.header img {
-    float:right;
-    width: 280px;
-    height: 300px;
-    right:900px;
-    
-  }
-
-#head2 {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:30px;
+#home-subheading {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 30px;
 }
 
-#abut.me {
+#home-text {
     position: relative;
-    font-size:30px;
-}
-
-#abut.me2 {
-    position: relative;
+    font-size: 30px;
 }
 
 #head3 {
     position: relative;
-    font-size:50px;
+    font-size: 50px;
 }
