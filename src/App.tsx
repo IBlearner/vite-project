@@ -14,6 +14,7 @@ function App() {
     const [page, setPage] = useState("Contact");
     const [language, setLanguage] = useState<ILanguage>(supportedLanguages.english);
     const [content, setContent] = useState(staticContent.english);
+    const [formPrefill, setFormPrefill] = useState({});
 
     useEffect(() => {
         switch (language.name) {
@@ -32,10 +33,9 @@ function App() {
             case views.about.routeName:
                 return <About content={content.about} />;
             case views.services.routeName:
-                return <Services content={content.services} />;
+                return <Services content={content.services} setPage={setPage} setFormPrefill={setFormPrefill} />;
             case views.contact.routeName:
-                return <Contact content={content.contact} />;
-
+                return <Contact content={content.contact} formPrefill={formPrefill} />;
             case views.reviews.routeName:
                 return <Reviews content={content.reviews} />;
             case views.home.routeName:

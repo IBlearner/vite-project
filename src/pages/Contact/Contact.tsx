@@ -1,16 +1,20 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./Contact.scss";
-import { IContactForm, IGenericPageContent } from "src/common/interfaces";
+import { IContactForm, IContactFormPrefill, IGenericPageContent } from "src/common/interfaces";
 
-const Contact = ({ content }: { content: IGenericPageContent }) => {
-    const formDataEmpty = {
-        name: "ewr",
-        email: "wer@wer",
-        phone: "0455555555",
-        enquiring: "12",
-        message: "123"
+const Contact = ({ content, formPrefill }: { content: IGenericPageContent; formPrefill: IContactFormPrefill }) => {
+    // Check for specific prefill content to set a default
+    formPrefill.enquiring = formPrefill.enquiring?.toLowerCase() === "todo" ? "other" : formPrefill.enquiring;
+
+    let initFormData = {
+        name: "",
+        email: "",
+        phone: "",
+        enquiring: "",
+        message: "",
+        ...formPrefill
     };
-    const [formData, setFormData] = useState<IContactForm>(formDataEmpty);
+    const [formData, setFormData] = useState<IContactForm>(initFormData);
     const [formRecieved, setFormRecieved] = useState<boolean>(false);
     const [keyDown, setKeyDown] = useState<string>("");
 
@@ -31,7 +35,7 @@ const Contact = ({ content }: { content: IGenericPageContent }) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
-    // Have to user "React." here as it is using the DOM KeyboardEvent instead
+    // Have to use "React." here as it is using the DOM KeyboardEvent instead
     // Stores the user's currently pressed key. Only needed for inputs that require specific input validations
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         setKeyDown(event.key);
@@ -52,7 +56,7 @@ const Contact = ({ content }: { content: IGenericPageContent }) => {
         // Change BE response to be json format
         // const data = await res.json();
         if (res.ok) {
-            setFormData(formDataEmpty);
+            setFormData(initFormData);
             // setFormRecieved(true);
         }
     };
@@ -98,21 +102,36 @@ const Contact = ({ content }: { content: IGenericPageContent }) => {
                     minLength={10}
                     maxLength={10}
                 />
-
+                {/* TODO: map all the services from somwhere */}
                 <p>Which would you like to enquire about?</p>
-                <input type="radio" id="driving" name="enquiring" required value="driving" />
+                <input
+                    type="radio"
+                    id="driving"
+                    name="enquiring"
+                    required
+                    value="driving"
+                    onChange={handleInputChange}
+                    checked={formData.enquiring === "driving"}
+                />
                 <label htmlFor="driving">LAM driving school</label>
                 <br />
-                <input type="radio" id="solar" name="enquiring" required value="solar" />
+                <input type="radio" id="solar" name="enquiring" required value="solar" onChange={handleInputChange} checked={formData.enquiring === "solar"} />
                 <label htmlFor="solar">Diamond Solar</label>
                 <br />
-                <input type="radio" id="thanksai" name="enquiring" required value="thanksai" />
+                <input
+                    type="radio"
+                    id="thanksai"
+                    name="enquiring"
+                    required
+                    value="thanksai"
+                    onChange={handleInputChange}
+                    checked={formData.enquiring === "thanksai"}
+                />
                 <label htmlFor="thanksai">ThanksAI</label>
                 <br />
-                <input type="radio" id="other" name="enquiring" required value="other" />
+                <input type="radio" id="other" name="enquiring" required value="other" onChange={handleInputChange} checked={formData.enquiring === "other"} />
                 <label htmlFor="other">Other</label>
                 <br />
-
                 <p>What would you like to ask?</p>
                 <textarea
                     name="message"
@@ -125,7 +144,6 @@ const Contact = ({ content }: { content: IGenericPageContent }) => {
                     onChange={handleTextareaChange}
                 />
                 <br />
-
                 <input type="submit" value="Submit"></input>
             </form>
         );

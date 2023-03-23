@@ -7,6 +7,15 @@ export interface IContactForm {
     message: string;
 }
 
+// Identical interface to contact form to be used for pre-populating fields if they are coming from elsewhere
+export interface IContactFormPrefill {
+    name?: string;
+    email?: string;
+    phone?: string;
+    enquiring?: string;
+    message?: string;
+}
+
 export interface IReview {
     id: string;
     message: string;
@@ -37,6 +46,7 @@ export interface IGenericPageContent {
     text9?: string;
     text10?: string;
     text11?: string;
+    misc1?: string;
 }
 
 export interface ILanguage {
