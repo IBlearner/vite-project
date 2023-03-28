@@ -23,33 +23,31 @@ export interface IReview {
     stars: number;
 }
 
-export interface IGenericPageContent {
-    heading: string;
-    subheading1?: string;
-    subheading2?: string;
-    subheading3?: string;
-    subheading4?: string;
-    subheading5?: string;
-    subheading6?: string;
-    subheading7?: string;
-    subheading8?: string;
-    subheading9?: string;
-    subheading10?: string;
-    text1: string;
-    text2?: string;
-    text3?: string;
-    text4?: string;
-    text5?: string;
-    text6?: string;
-    text7?: string;
-    text8?: string;
-    text9?: string;
-    text10?: string;
-    text11?: string;
-    misc1?: string;
+// Generic interface that only has a name and friendlyName
+export interface IGenericObj {
+    name: string;
+    friendlyName: string;
 }
 
-export interface ILanguage {
-    name: string;
-    shortName: string;
+// Content to be fed to each page. The content property for each page is different atm, due to different needs
+export interface IContent {
+    name: ILanguageOptions;
+    heading: ILanguageOptions;
+    content: any;
+}
+
+// Specific content for the service page
+export interface IServiceContent extends IGenericObj {
+    description: ILanguageOptions;
+}
+
+// Interface for each route
+export interface IRoute extends IGenericObj {
+    routeName: string;
+}
+
+// Generic interface to accomodate the support languages. Add a new property whenever a language is added (also add to the appropriate enum)
+export interface ILanguageOptions {
+    en: string;
+    vn: string;
 }

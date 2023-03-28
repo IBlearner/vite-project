@@ -8,39 +8,39 @@ import Contact from "./pages/Contact/Contact";
 import Reviews from "./pages/Reviews/Reviews";
 import Footer from "./components/Footer/Footer";
 import { views, supportedLanguages, staticContent } from "./common/constants";
-import { ILanguage } from "./common/interfaces";
+import { IGenericObj } from "./common/interfaces";
 
 function App() {
     const [page, setPage] = useState("Contact");
-    const [language, setLanguage] = useState<ILanguage>(supportedLanguages.english);
-    const [content, setContent] = useState(staticContent.english);
+    const [language, setLanguage] = useState<IGenericObj>(supportedLanguages.english);
+    // const [content, setContent] = useState(staticContent.english);
     const [formPrefill, setFormPrefill] = useState({});
 
-    useEffect(() => {
-        switch (language.name) {
-            case "vietnamese":
-                setContent(staticContent.vietnamese);
-                break;
-            case "english":
-            default:
-                setContent(staticContent.english);
-                break;
-        }
-    }, [language]);
+    // useEffect(() => {
+    //     switch (language.name) {
+    //         case "vietnamese":
+    //             setContent(staticContent.vietnamese);
+    //             break;
+    //         case "english":
+    //         default:
+    //             setContent(staticContent.english);
+    //             break;
+    //     }
+    // }, [language]);
 
     const getPage = () => {
         switch (page) {
             case views.about.routeName:
-                return <About content={content.about} />;
+                return <About content={staticContent.about} />;
             case views.services.routeName:
-                return <Services content={content.services} setPage={setPage} setFormPrefill={setFormPrefill} />;
+                return <Services content={staticContent.services} setPage={setPage} setFormPrefill={setFormPrefill} />;
             case views.contact.routeName:
-                return <Contact content={content.contact} formPrefill={formPrefill} />;
+                return <Contact content={staticContent.contact} formPrefill={formPrefill} />;
             case views.reviews.routeName:
-                return <Reviews content={content.reviews} />;
+                return <Reviews content={staticContent.reviews} />;
             case views.home.routeName:
             default:
-                return <Home content={content.home} />;
+                return <Home content={staticContent.home} />;
         }
     };
 
