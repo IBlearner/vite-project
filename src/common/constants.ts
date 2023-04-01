@@ -1,6 +1,6 @@
-import { IGenericObj, IRoute, IContent, ILanguageOptions, IServiceContent } from "./interfaces";
+import { IGenericObj, IRouteData, IGeneralPageContent, ILanguageSwitch, IServiceContent } from "./interfaces";
 
-export const views: { home: IRoute; about: IRoute; services: IRoute; contact: IRoute; reviews: IRoute } = {
+export const viewsData: { home: IRouteData; about: IRouteData; services: IRouteData; contact: IRouteData; reviews: IRouteData } = {
     home: {
         name: "home",
         routeName: "home",
@@ -38,16 +38,16 @@ export const supportedLanguages: { english: IGenericObj; vietnamese: IGenericObj
         friendlyName: "vietnamese"
     },
     mandarinSimplified: {
-        name: "cn-simplified",
+        name: "cn",
         friendlyName: "mandarin-simplified"
     },
     mandarinTraditional: {
-        name: "cn-traditional",
+        name: "cn2",
         friendlyName: "mandarin-traditional"
     }
 };
 
-export const homeContent: { subheading: ILanguageOptions; text1: ILanguageOptions; text2: ILanguageOptions } = {
+export const homeSpecificContent: { [property: string]: ILanguageSwitch } = {
     subheading: {
         en: "",
         vn: ""
@@ -62,7 +62,7 @@ export const homeContent: { subheading: ILanguageOptions; text1: ILanguageOption
     }
 };
 
-export const aboutContent: { subheading: ILanguageOptions; text1: ILanguageOptions; text2: ILanguageOptions } = {
+export const aboutSpecificContent: { [property: string]: ILanguageSwitch } = {
     subheading: {
         en: "",
         vn: ""
@@ -77,13 +77,14 @@ export const aboutContent: { subheading: ILanguageOptions; text1: ILanguageOptio
     }
 };
 
-export const servicesContent: {
+export const servicesSpecificContent: {
     driving: IServiceContent;
     thanksai: IServiceContent;
     solar: IServiceContent;
     quiari: IServiceContent;
     herbalife: IServiceContent;
-    misc: any;
+    subheading: ILanguageSwitch;
+    contactMeText: ILanguageSwitch;
 } = {
     driving: {
         name: "driving",
@@ -125,12 +126,17 @@ export const servicesContent: {
             vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
         }
     },
-    misc: {
-        contactMeText: "Contact me about this"
+    subheading: {
+        en: "My partnerships",
+        vn: "Quan hệ đối tác của tôi"
+    },
+    contactMeText: {
+        en: "Contact me about this",
+        vn: "Liên hệ với tôi về điều này"
     }
 };
 
-export const contactContent: { subheading: ILanguageOptions; text1: ILanguageOptions; text2: ILanguageOptions } = {
+export const contactSpecificContent: { [property: string]: ILanguageSwitch } = {
     subheading: {
         en: "",
         vn: ""
@@ -145,7 +151,7 @@ export const contactContent: { subheading: ILanguageOptions; text1: ILanguageOpt
     }
 };
 
-export const reviewsContent: { subheading: ILanguageOptions; text1: ILanguageOptions; text2: ILanguageOptions } = {
+export const reviewsSpecificContent: { [property: string]: ILanguageSwitch } = {
     subheading: {
         en: "",
         vn: ""
@@ -160,60 +166,61 @@ export const reviewsContent: { subheading: ILanguageOptions; text1: ILanguageOpt
     }
 };
 
-export const staticContent: { home: IContent; about: IContent; services: IContent; contact: IContent; reviews: IContent } = {
+export const pageGeneralContent: {
+    home: IGeneralPageContent;
+    about: IGeneralPageContent;
+    services: IGeneralPageContent;
+    contact: IGeneralPageContent;
+    reviews: IGeneralPageContent;
+} = {
     home: {
-        name: {
-            en: "home",
-            vn: "trang chủ"
-        },
         heading: {
             en: "Home",
             vn: "Trang chủ"
         },
-        content: homeContent
+        description: {
+            en: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+        }
     },
     about: {
-        name: {
-            en: "about",
-            vn: "về tôi"
-        },
         heading: {
             en: "About me",
             vn: "Về tôi"
         },
-        content: aboutContent
+        description: {
+            en: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+        }
     },
     services: {
-        name: {
-            en: "services",
-            vn: "dịch vụ"
-        },
         heading: {
             en: "Services",
             vn: "Dịch vụ"
         },
-        content: servicesContent
+        description: {
+            en: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+        }
     },
     contact: {
-        name: {
-            en: "contact",
-            vn: "liên hệ với tôi"
-        },
         heading: {
             en: "Contact me",
             vn: "Liên hệ với tôi"
         },
-        content: contactContent
+        description: {
+            en: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+        }
     },
     reviews: {
-        name: {
-            en: "reviews",
-            vn: "đánh giá"
-        },
         heading: {
             en: "Reviews",
             vn: "Đánh giá"
         },
-        content: reviewsContent
+        description: {
+            en: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            vn: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không rõ danh tính lấy một bộ sưu tập các loại và xáo trộn nó để tạo thành một cuốn sách mẫu. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt sang sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó đã được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset chứa các đoạn Lorem Ipsum và gần đây hơn với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+        }
     }
 };

@@ -30,24 +30,23 @@ export interface IGenericObj {
 }
 
 // Content to be fed to each page. The content property for each page is different atm, due to different needs
-export interface IContent {
-    name: ILanguageOptions;
-    heading: ILanguageOptions;
-    content: any;
+export interface IGeneralPageContent {
+    heading: ILanguageSwitch;
+    description: ILanguageSwitch;
 }
 
 // Specific content for the service page
 export interface IServiceContent extends IGenericObj {
-    description: ILanguageOptions;
+    description: ILanguageSwitch;
 }
 
 // Interface for each route
-export interface IRoute extends IGenericObj {
+export interface IRouteData extends IGenericObj {
     routeName: string;
 }
 
 // Generic interface to accomodate the support languages. Add a new property whenever a language is added (also add to the appropriate enum)
-export interface ILanguageOptions {
+export interface ILanguageSwitch {
     en: string;
     vn: string;
 }

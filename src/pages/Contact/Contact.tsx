@@ -1,8 +1,10 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./Contact.scss";
-import { IContactForm, IContactFormPrefill, IGenericPageContent } from "src/common/interfaces";
+import { IContactForm, IContactFormPrefill, IGeneralPageContent } from "src/common/interfaces";
+import { Languages } from "src/common/enums";
+import { contactSpecificContent } from "src/common/constants";
 
-const Contact = ({ content, formPrefill }: { content: IGenericPageContent; formPrefill: IContactFormPrefill }) => {
+const Contact = ({ generalContent, formPrefill, language }: { generalContent: IGeneralPageContent; formPrefill: IContactFormPrefill; language: string }) => {
     // Check for specific prefill content to set a default
     formPrefill.enquiring = formPrefill.enquiring?.toLowerCase() === "todo" ? "other" : formPrefill.enquiring;
 
@@ -160,12 +162,10 @@ const Contact = ({ content, formPrefill }: { content: IGenericPageContent; formP
 
     return (
         <div>
-            <h1>{content.heading}</h1>
-            <p>{content.text1}</p>
-            <h2>{content.subheading1}</h2>
-            <p>{content.text2}</p>
-            <h2>{content.subheading2}</h2>
-            <p>{content.text3}</p>
+            <h1>{language === Languages.english ? generalContent.heading.en : generalContent.heading.vn}</h1>
+            <p>{language === Languages.english ? generalContent.description.en : generalContent.description.vn}</p>
+            <h2>{language === Languages.english ? contactSpecificContent.subheading.en : contactSpecificContent.subheading.vn}</h2>
+            <p>{language === Languages.english ? contactSpecificContent.text1.en : contactSpecificContent.text1.vn}</p>
             <div id="form-field">{!formRecieved ? messageForm() : submitConfirmationMessage()}</div>
         </div>
     );

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Reviews.scss";
 import Stars from "src/components/Stars/Stars";
-import { IGenericPageContent, IReview } from "src/common/interfaces";
+import { IGeneralPageContent, IReview } from "src/common/interfaces";
+import { Languages } from "src/common/enums";
+import { reviewsSpecificContent } from "src/common/constants";
 
-const Reviews = ({ content }: { content: IGenericPageContent }) => {
+const Reviews = ({ generalContent, language }: { generalContent: IGeneralPageContent; language: string }) => {
     const [reviews, setReviews] = useState<IReview[]>([]);
 
     useEffect(() => {
@@ -90,12 +92,10 @@ const Reviews = ({ content }: { content: IGenericPageContent }) => {
 
     return (
         <div>
-            <h1>{content.heading}</h1>
-            <p>{content.text1}</p>
-            <h2>{content.subheading1}</h2>
-            <p>{content.text2}</p>
-            <h2>{content.subheading2}</h2>
-            <p>{content.text3}</p>
+            <h1>{language === Languages.english ? generalContent.heading.en : generalContent.heading.vn}</h1>
+            <p>{language === Languages.english ? generalContent.description.en : generalContent.description.vn}</p>
+            <h2>{language === Languages.english ? reviewsSpecificContent.subheading.en : reviewsSpecificContent.subheading.vn}</h2>
+            <p>{language === Languages.english ? reviewsSpecificContent.text1.en : reviewsSpecificContent.text1.vn}</p>
             <div className="review-items">{getReviewItems()}</div>
         </div>
     );

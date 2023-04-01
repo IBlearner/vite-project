@@ -1,15 +1,16 @@
 import "./About.scss";
-import { IGenericPageContent } from "src/common/interfaces";
+import { IGeneralPageContent } from "src/common/interfaces";
+import { aboutSpecificContent } from "src/common/constants";
+import { Languages } from "src/common/enums";
 
-const About = ({ content }: { content: IGenericPageContent }) => {
+const About = ({ generalContent, language }: { generalContent: IGeneralPageContent; language: string }) => {
     return (
         <div>
-            <h1>{content.heading}</h1>
-            <p>{content.text1}</p>
-            <h2>{content.subheading1}</h2>
-            <p>{content.text2}</p>
-            <h2>{content.subheading2}</h2>
-            <p>{content.text3}</p>
+            <h1 className="home-heading">{language === Languages.english ? generalContent.heading.en : generalContent.heading.vn}</h1>
+            <h2 className="home-subheading">{language === Languages.english ? aboutSpecificContent.subheading.en : aboutSpecificContent.subheading.vn}</h2>
+            <p className="home-text">{language === Languages.english ? aboutSpecificContent.text1.en : aboutSpecificContent.text1.vn}</p>
+            <h2 className="home-subheading">{language === Languages.english ? aboutSpecificContent.subheading.en : aboutSpecificContent.subheading.vn}</h2>
+            <p className="home-text">{language === Languages.english ? aboutSpecificContent.text2.en : aboutSpecificContent.text2.vn}</p>
         </div>
     );
 };

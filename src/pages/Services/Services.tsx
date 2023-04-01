@@ -1,8 +1,20 @@
 import "./Services.scss";
-import { IGenericPageContent, IContactFormPrefill } from "src/common/interfaces";
+import { IGeneralPageContent, IContactFormPrefill } from "src/common/interfaces";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { servicesSpecificContent } from "src/common/constants";
+import { Languages } from "src/common/enums";
 
-const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageContent; setPage: Function; setFormPrefill: Function }) => {
+const Services = ({
+    generalContent,
+    setPage,
+    setFormPrefill,
+    language
+}: {
+    generalContent: IGeneralPageContent;
+    setPage: Function;
+    setFormPrefill: Function;
+    language: string;
+}) => {
     const navigateToContactPage = (contactFormPrefill: IContactFormPrefill) => {
         setFormPrefill(contactFormPrefill);
         setPage("contact");
@@ -11,15 +23,15 @@ const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageC
     return (
         <div>
             <div className="services-heading">
-                <h1>{content.heading}</h1>
-                <img className="heading_underline" src="/heading_underline.png" alt={content.subheading3} />
+                <h1>{language === Languages.english ? generalContent.heading.en : generalContent.heading.vn}</h1>
+                <img className="heading_underline" src="/heading_underline.png" alt={"TODO"} />
             </div>
 
             <div className="services-item">
-                <img className="services-image" src="/lam-driving.png" alt={content.subheading1} />
-                <p>{content.text1}</p>
+                <img className="services-image" src="/lam-driving.png" alt={servicesSpecificContent.driving.friendlyName} />
+                <p>{language === Languages.english ? servicesSpecificContent.driving.description.en : servicesSpecificContent.driving.description.vn}</p>
                 <button className="services-button" onClick={() => navigateToContactPage({ enquiring: "driving" })}>
-                    {content.misc1}
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
                     <span className="services-button-arrow">
                         <FaLongArrowAltRight />
                     </span>
@@ -27,15 +39,15 @@ const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageC
             </div>
 
             <div className="services-heading">
-                <h2>{content.subheading2}</h2>
-                <img className="heading_underline" src="/heading_underline.png" alt={content.subheading3} />
+                <h2>{language === Languages.english ? servicesSpecificContent.subheading.en : servicesSpecificContent.subheading.vn}</h2>
+                <img className="heading_underline" src="/heading_underline.png" alt={"TODO"} />
             </div>
 
             <div className="services-item">
-                <img className="services-image" src="/thanksai.jpg" alt={content.subheading3} />
-                <p>{content.text3}</p>
+                <img className="services-image" src="/thanksai.jpg" alt={servicesSpecificContent.thanksai.friendlyName} />
+                <p>{language === Languages.english ? servicesSpecificContent.thanksai.description.en : servicesSpecificContent.thanksai.description.vn}</p>
                 <button className="services-button" onClick={() => navigateToContactPage({ enquiring: "thanksai" })}>
-                    {content.misc1}
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
                     <span className="services-button-arrow">
                         <FaLongArrowAltRight />
                     </span>
@@ -43,10 +55,10 @@ const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageC
             </div>
 
             <div className="services-item">
-                <img className="services-image" src="/herbalife.png" alt={content.subheading4} />
-                <p>{content.text4}</p>
+                <img className="services-image" src="/herbalife.png" alt={servicesSpecificContent.driving.friendlyName} />
+                <p>{language === Languages.english ? servicesSpecificContent.herbalife.description.en : servicesSpecificContent.herbalife.description.vn}</p>
                 <button className="services-button" onClick={() => navigateToContactPage({ enquiring: "herbalife" })}>
-                    {content.misc1}
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
                     <span className="services-button-arrow">
                         <FaLongArrowAltRight />
                     </span>
@@ -54,10 +66,10 @@ const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageC
             </div>
 
             <div className="services-item">
-                <img className="services-image" src="/quiari.png" alt={content.subheading5} />
-                <p>{content.text5}</p>
+                <img className="services-image" src="/quiari.png" alt={servicesSpecificContent.driving.friendlyName} />
+                <p>{language === Languages.english ? servicesSpecificContent.quiari.description.en : servicesSpecificContent.quiari.description.vn}</p>
                 <button className="services-button" onClick={() => navigateToContactPage({ enquiring: "quiari" })}>
-                    {content.misc1}
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
                     <span className="services-button-arrow">
                         <FaLongArrowAltRight />
                     </span>
@@ -65,10 +77,10 @@ const Services = ({ content, setPage, setFormPrefill }: { content: IGenericPageC
             </div>
 
             <div className="services-item">
-                <img className="services-image" src="/TODO.gif" alt={content.subheading6} />
-                <p>{content.text6}</p>
+                <img className="services-image" src="/TODO.gif" alt={servicesSpecificContent.driving.friendlyName} />
+                <p>{language === Languages.english ? servicesSpecificContent.driving.description.en : servicesSpecificContent.driving.description.vn}</p>
                 <button className="services-button" onClick={() => navigateToContactPage({ enquiring: "TODO" })}>
-                    {content.misc1}
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
                     <span className="services-button-arrow">
                         <FaLongArrowAltRight />
                     </span>
