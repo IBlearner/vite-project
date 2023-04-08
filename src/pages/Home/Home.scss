@@ -1,22 +1,27 @@
-#home-title {
-    font-size: 70px;
-    font-family: "Chakra Petch", cursive;
-    text-align: center;
-    border: 2px solid rgb(91, 86, 86);
-    border-radius: 0%;
-    border-width: 5px;
-    border: dotted;
-    padding: 80px;
-    color: rgb(46, 49, 54);
-    text-shadow: 2px 2px 8px rgb(99, 99, 97);
-    // position: relative;
-    max-width: 200px;
-    left: 700px;
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#home-header {
+    > img {
+        width: 100%;
+    }
+}
+
+#home-quote {
+    font-style: italic;
+}
+
+.home-text {
+    font-weight: 700;
 }
 
 #home-heading {
     font-size: 60px;
-    font-family: Georgia, "Times New Roman", Times, serif;
     text-align: right;
     position: relative;
 }
@@ -35,7 +40,6 @@
 }
 
 #home-subheading {
-    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 30px;
 }
 

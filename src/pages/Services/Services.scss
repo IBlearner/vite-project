@@ -4,10 +4,27 @@
 
     border: solid 3px black;
     border-radius: 18px;
-    // border-bottom-left-radius: 700px;
     border-spacing: 10px;
-    box-shadow: 10px 10px 5px rgb(255, 211, 124);
-    // shape-outside: margin-box;
+
+    &.driving {
+        box-shadow: 10px 10px 5px rgb(255, 211, 124);
+    }
+
+    &.thanksai {
+        box-shadow: 10px 10px 5px rgb(255, 103, 156);
+    }
+
+    &.solar {
+        box-shadow: 10px 10px 5px rgb(255, 211, 124);
+    }
+
+    &.quiari {
+        box-shadow: 10px 10px 5px rgb(200, 124, 255);
+    }
+
+    &.herbalife {
+        box-shadow: 10px 10px 5px rgb(212, 255, 162);
+    }
 
     .services-image {
         width: 100%;
@@ -17,22 +34,21 @@
     }
 }
 
-.services-button {
-    all: unset;
+.services-button-arrow {
     position: relative;
-
-    text-align: center;
-
-    .services-button-arrow {
-        position: absolute;
-        right: -21px;
-        top: 2px;
-    }
+    right: -8px;
+    bottom: -2px;
 }
 
 .services-heading {
     text-align: center;
     position: relative;
+
+    > h1,
+    h2 {
+        font-size: 40px;
+        font-weight: 700;
+    }
 
     .heading_underline {
         position: absolute;

@@ -18,7 +18,7 @@
 
         background-color: rgba(255, 255, 255);
         color: #242424;
-        font-size: 20px;
+        font-size: 40px;
 
         &.toolbar-open {
             right: 0;
@@ -64,7 +64,6 @@
 
     .toolbar-logo {
         height: 100%;
-        font-family: "Chakra Petch", cursive;
     }
 
     #toolbar-mobile-language {
@@ -91,9 +90,12 @@
 
     transition: font-size 0.3s;
     // color: white;
-    font-family: "Unbounded", cursive;
-
     margin-right: 20px;
+    font-weight: 400;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
 
     &.selected {
         background-image: linear-gradient(120deg, #d0d0d0 0%, #c7c7c7 100%);
@@ -102,7 +104,8 @@
         background-position: 0 78%;
         transition: background-size 0.25s ease-in;
 
-        font-size: 30px;
+        // font-size: 50px;
+        font-weight: 700;
 
         // TODO: Add spacing on top of the mobile-only toolbar!!
         // > :first-child {

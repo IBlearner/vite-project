@@ -11,15 +11,19 @@
     margin: 20px 40px;
 }
 
-#footer {
-    /* Make the footer stick to the bottom */
-    position: sticky;
-    bottom: 0;
-    left: 50%;
-    right: 50%;
-    /* font-size: 40px; */
-    /* Need to make the footer centered somehow */
-    width: 50%;
+.primary-button {
+    all: unset;
+    position: relative;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    color: white;
+    background-color: #1a1a1a;
 }
 
 /* #root {

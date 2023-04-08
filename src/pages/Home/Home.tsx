@@ -7,15 +7,15 @@ const Home = ({ generalContent, language }: { generalContent: IGeneralPageConten
     const isEnglish: boolean = language === Languages.english;
 
     return (
-        <div>
+        <div id="home">
             <div id="home-header">
-                <h1 id="home-title">DUC TINH LAM</h1>
+                <img src="/tinh_profile_picture.jpg" alt="Duc Tinh Lam profile picture" />
             </div>
 
-            <h1 className="home-heading">{isEnglish ? generalContent.heading.en : generalContent.heading.vn}</h1>
-            <p className="TODO">{isEnglish ? generalContent.description.en : generalContent.description.vn}</p>
-            <h2 className="home-subheading">{isEnglish ? homeSpecificContent.subheading.en : homeSpecificContent.subheading.vn}</h2>
-            <p className="home-text">{isEnglish ? homeSpecificContent.text1.en : homeSpecificContent.text1.vn}</p>
+            {/* <h1 className="home-heading">{isEnglish ? generalContent.heading.en : generalContent.heading.vn}</h1> */}
+            <q id="home-quote">{isEnglish ? generalContent.description.en : generalContent.description.vn}</q>
+
+            <button className="primary-button">{isEnglish ? homeSpecificContent.text1.en : homeSpecificContent.text1.vn}</button>
         </div>
     );
 };

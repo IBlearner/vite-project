@@ -27,8 +27,8 @@ const Toolbar = ({ page, setPage, language, setLanguage }: { page: string; setPa
 
     // TODO: add more language options
     const changeLanguage = () => {
-        console.log(language.name);
-        return language.name === "en" ? setLanguage(supportedLanguages.vietnamese) : setLanguage(supportedLanguages.english);
+        const chosenLanguage = language.name === "en" ? setLanguage(supportedLanguages.vietnamese) : setLanguage(supportedLanguages.english);
+        return chosenLanguage.toUpperCase();
     };
 
     const toolbar = () => {
@@ -47,7 +47,7 @@ const Toolbar = ({ page, setPage, language, setLanguage }: { page: string; setPa
                             }}
                             key={view.routeName}
                         >
-                            {view.name.toUpperCase()}
+                            {view.name}
                         </div>
                     );
                 })}
