@@ -3,13 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    // margin: 45px 0;
 }
 
 #home-header {
-    > img {
-        width: 100%;
-    }
+}
+
+#home-profile-picture {
+    max-width: 100vw;
+    max-height: 38vh;
+    width: auto;
+    height: auto;
+
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px #1a1a1a;
+    margin-bottom: 40px;
 }
 
 #home-quote {

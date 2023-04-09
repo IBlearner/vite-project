@@ -8,9 +8,9 @@ const Home = ({ generalContent, language }: { generalContent: IGeneralPageConten
 
     return (
         <div id="home">
-            <div id="home-header">
-                <img src="/tinh_profile_picture.jpg" alt="Duc Tinh Lam profile picture" />
-            </div>
+            <h1 id="home-header">Duc Tinh Lam</h1>
+
+            <img id="home-profile-picture" src="/tinh_profile_picture.jpg" alt="Duc Tinh Lam profile picture" /> 
 
             {/* <h1 className="home-heading">{isEnglish ? generalContent.heading.en : generalContent.heading.vn}</h1> */}
             <q id="home-quote">{isEnglish ? generalContent.description.en : generalContent.description.vn}</q>

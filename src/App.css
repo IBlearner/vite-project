@@ -14,7 +14,7 @@
 .primary-button {
     all: unset;
     position: relative;
-    padding: 5px 20px 5px 10px;
+    padding: 5px 10px;
     border: 1px solid black;
     border-radius: 8px;
     text-align: center;

@@ -11,7 +11,7 @@ import { viewsData, supportedLanguages, pageGeneralContent } from "./common/cons
 import { IGenericObj } from "./common/interfaces";
 
 function App() {
-    const [page, setPage] = useState("Contact");
+    const [page, setPage] = useState("home");
     const [language, setLanguage] = useState<IGenericObj>(supportedLanguages.english);
     // const [content, setContent] = useState(staticContent.english);
     const [formPrefill, setFormPrefill] = useState({});
