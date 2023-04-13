@@ -4,17 +4,21 @@ import { BsFacebook, BsLinkedin, BsInstagram } from "react-icons/bs";
 const Footer = () => {
     return (
         <div id="footer">
-            <div className="socialmedia">
+            <a
+                className="socialmedia"
+                href="https://www.facebook.com/people/Tinh-Tony-Lam/pfbid0Dt8WpfZAXRTfwUfNKVdZiv7DMkWTysUeWG2H7wKeNVHr1FrAJZLmH1wMJkbkWToel/"
+                target="_blank"
+            >
                 <BsFacebook />
-            </div>
+            </a>
 
-            <div className="socialmedia">
+            <a className="socialmedia">
                 <BsLinkedin />
-            </div>
+            </a>
 
-            <div className="socialmedia">
+            <a className="socialmedia">
                 <BsInstagram />
-            </div>
+            </a>
         </div>
     );
 };

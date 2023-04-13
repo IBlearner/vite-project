@@ -42,7 +42,7 @@ function App() {
                 return <Reviews generalContent={reviews} language={language.friendlyName} />;
             case viewsData.home.routeName:
             default:
-                return <Home generalContent={home} language={language.friendlyName} />;
+                return <Home generalContent={home} language={language.friendlyName} setPage={setPage} />;
         }
     };
 

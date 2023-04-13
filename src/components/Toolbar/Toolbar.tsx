@@ -5,6 +5,7 @@ import { isMobile } from "src/common/helpers";
 import { IGenericObj } from "src/common/interfaces";
 import { RiMenuLine } from "react-icons/ri";
 import { FaGlobe } from "react-icons/fa";
+import { AiFillHome } from "react-icons/Ai";
 
 const Toolbar = ({ page, setPage, language, setLanguage }: { page: string; setPage: Function; language: IGenericObj; setLanguage: Function }) => {
     const data = [viewsData.home, viewsData.about, viewsData.services, viewsData.contact, viewsData.reviews];
@@ -59,8 +60,7 @@ const Toolbar = ({ page, setPage, language, setLanguage }: { page: string; setPa
         return (
             <div className="toolbar-mobile">
                 <div className="toolbar-logo" onClick={() => setPage("home")}>
-                    <span>DUC</span>
-                    <span>TINH</span>
+                    <AiFillHome size={"26px"} />
                 </div>
                 <button id="toolbar-mobile-language" onClick={() => changeLanguage()}>
                     <FaGlobe size="1.2em" title="globe icon - change language" /> <span>{language.name}</span>
