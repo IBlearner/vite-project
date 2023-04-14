@@ -3,6 +3,8 @@ import "./Contact.scss";
 import { IContactForm, IContactFormPrefill, IGeneralPageContent } from "src/common/interfaces";
 import { Languages } from "src/common/enums";
 import { contactSpecificContent } from "src/common/constants";
+import Input from "src/components/Input/Input";
+import { InputTypes } from "src/common/enums";
 
 const Contact = ({ generalContent, formPrefill, language }: { generalContent: IGeneralPageContent; formPrefill: IContactFormPrefill; language: string }) => {
     // Check for specific prefill content to set a default
@@ -66,32 +68,34 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
     const messageForm = () => {
         return (
             <form action="submit" onSubmit={submitForm}>
-                <label htmlFor="name">Name:</label>
-                <br />
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
+                <Input
+                    label="Name"
+                    inputType={InputTypes.text}
+                    inputName="name"
+                    isRequired={true}
                     value={formData.name}
-                    required
-                    placeholder="Please enter your first name"
-                    onChange={handleInputChange}
+                    handleInputChange={handleInputChange}
                 />
                 <br />
-                <label htmlFor="email">Email:</label>
-                <br />
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
+                <Input
+                    label="Email"
+                    inputType={InputTypes.email}
+                    inputName="email"
+                    isRequired={true}
                     value={formData.email}
-                    required
-                    placeholder="Please enter your email"
-                    onChange={handleInputChange}
+                    handleInputChange={handleInputChange}
                 />
                 <br />
-                <label htmlFor="phone">Contact number:</label>
-                <br />
+                <Input
+                    label="Contact number"
+                    inputType={InputTypes.tel}
+                    inputName="phone"
+                    isRequired={true}
+                    value={formData.phone}
+                    handleInputChange={handleInputChange}
+                    handleKeyPress={handleKeyPress}
+                />
+                {/* <label htmlFor="phone">Contact number:</label>
                 <input
                     type="tel"
                     id="phone"
@@ -103,7 +107,7 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     onChange={handleInputChange}
                     minLength={10}
                     maxLength={10}
-                />
+                /> */}
                 {/* TODO: map all the services from somwhere */}
                 <p>Which would you like to enquire about?</p>
                 <input
