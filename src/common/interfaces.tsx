@@ -50,3 +50,9 @@ export interface ILanguageSwitch {
     en: string;
     vn: string;
 }
+
+// Interface for radio options for a group
+export interface IRadioOption {
+    label: string;
+    name: string;
+}

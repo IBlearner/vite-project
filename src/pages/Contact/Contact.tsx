@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./Contact.scss";
-import { IContactForm, IContactFormPrefill, IGeneralPageContent } from "src/common/interfaces";
+import { IContactForm, IContactFormPrefill, IGeneralPageContent, IRadioOption } from "src/common/interfaces";
 import { Languages } from "src/common/enums";
 import { contactSpecificContent } from "src/common/constants";
 import Input from "src/components/Input/Input";
@@ -19,6 +19,25 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
         message: "",
         ...formPrefill
     };
+    const enquiringOptions: IRadioOption[] = [
+        {
+            label: "LAM driving school",
+            name: "driving"
+        },
+        {
+            label: "Diamond Solar",
+            name: "solar"
+        },
+        {
+            label: "ThanksAI",
+            name: "thanksai"
+        },
+        {
+            label: "Other",
+            name: "other"
+        }
+    ];
+
     const [formData, setFormData] = useState<IContactForm>(initFormData);
     const [formRecieved, setFormRecieved] = useState<boolean>(false);
     const [keyDown, setKeyDown] = useState<string>("");
@@ -48,6 +67,12 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         setKeyDown(event.key);
         console.log(event.key);
+    };
+
+    // TODO: get typing of param
+    const getCheckedRadio = (x: any) => {
+        console.log(x);
+        formData.enquiring = x;
     };
 
     const submitForm = async (event: FormEvent) => {
@@ -98,9 +123,14 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     handleKeyPress={handleKeyPress}
                 />
                 {/* TODO: map all the services from somwhere */}
-                <p>Which would you like to enquire about?</p>
 
-                {/* <InputRadio /> */}
+                <InputRadio
+                    label="Which would you like to enquire about?"
+                    inputName="message"
+                    isRequired={false}
+                    options={enquiringOptions}
+                    handleInputChange={handleInputChange}
+                />
                 <br />
                 <Input
                     label="What would you like to ask?"

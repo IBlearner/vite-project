@@ -27,13 +27,13 @@ const Input = ({
         switch (inputType) {
             case InputTypes.textarea:
                 return (
-                    <div id={`input-${label}`} className="textarea">
+                    <div id={`textarea-${inputName}`} className="textarea">
                         <label htmlFor={inputName} className="textarea-label">
                             {label}
                         </label>
                         <textarea
                             name={inputName}
-                            id={`input-${inputName}`}
+                            id={`textarea-${inputName}`}
                             className="textarea-field"
                             cols={cols ?? 30}
                             rows={rows ?? 10}
@@ -45,7 +45,7 @@ const Input = ({
                 );
             case InputTypes.tel:
                 return (
-                    <div id={`input-${label}`} className="input">
+                    <div id={`input-${inputName}`} className="input">
                         <input
                             type={inputType}
                             id={`input-${inputName}`}
@@ -67,7 +67,7 @@ const Input = ({
             case InputTypes.text:
             default:
                 return (
-                    <div id={`input-${label}`} className="input">
+                    <div id={`input-${inputName}`} className="input">
                         <input
                             type={inputType}
                             id={`input-${inputName}`}
