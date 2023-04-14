@@ -9,5 +9,6 @@ export const enum InputTypes {
     email = "english",
     number = "number",
     text = "text",
-    tel = "tel"
+    tel = "tel",
+    textarea = "textarea"
 }

@@ -5,6 +5,7 @@ import { Languages } from "src/common/enums";
 import { contactSpecificContent } from "src/common/constants";
 import Input from "src/components/Input/Input";
 import { InputTypes } from "src/common/enums";
+import InputRadio from "src/components/InputRadio/InputRadio";
 
 const Contact = ({ generalContent, formPrefill, language }: { generalContent: IGeneralPageContent; formPrefill: IContactFormPrefill; language: string }) => {
     // Check for specific prefill content to set a default
@@ -36,6 +37,9 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
     };
 
     const handleTextareaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        console.log(event.target.value);
+        console.log(event.target.name);
+
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
@@ -76,7 +80,6 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     value={formData.name}
                     handleInputChange={handleInputChange}
                 />
-                <br />
                 <Input
                     label="Email"
                     inputType={InputTypes.email}
@@ -85,7 +88,6 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     value={formData.email}
                     handleInputChange={handleInputChange}
                 />
-                <br />
                 <Input
                     label="Phone"
                     inputType={InputTypes.tel}
@@ -95,58 +97,20 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     handleInputChange={handleInputChange}
                     handleKeyPress={handleKeyPress}
                 />
-                {/* <label htmlFor="phone">Contact number:</label>
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    required
-                    placeholder="Please enter your contact number"
-                    onKeyDown={handleKeyPress}
-                    onChange={handleInputChange}
-                    minLength={10}
-                    maxLength={10}
-                /> */}
                 {/* TODO: map all the services from somwhere */}
                 <p>Which would you like to enquire about?</p>
-                <input
-                    type="radio"
-                    id="driving"
-                    name="enquiring"
-                    required
-                    value="driving"
-                    onChange={handleInputChange}
-                    checked={formData.enquiring === "driving"}
-                />
-                <label htmlFor="driving">LAM driving school</label>
+
+                {/* <InputRadio /> */}
                 <br />
-                <input type="radio" id="solar" name="enquiring" required value="solar" onChange={handleInputChange} checked={formData.enquiring === "solar"} />
-                <label htmlFor="solar">Diamond Solar</label>
-                <br />
-                <input
-                    type="radio"
-                    id="thanksai"
-                    name="enquiring"
-                    required
-                    value="thanksai"
-                    onChange={handleInputChange}
-                    checked={formData.enquiring === "thanksai"}
-                />
-                <label htmlFor="thanksai">ThanksAI</label>
-                <br />
-                <input type="radio" id="other" name="enquiring" required value="other" onChange={handleInputChange} checked={formData.enquiring === "other"} />
-                <label htmlFor="other">Other</label>
-                <br />
-                <p>What would you like to ask?</p>
-                <textarea
-                    name="message"
-                    id="message"
+                <Input
+                    label="What would you like to ask?"
+                    inputType={InputTypes.textarea}
+                    inputName="message"
+                    isRequired={true}
+                    value={formData.message}
+                    handleInputChange={handleTextareaChange}
                     cols={30}
                     rows={10}
-                    required
-                    value={formData.message}
-                    onChange={handleTextareaChange}
                 />
                 <br />
                 <input type="submit" value="Submit"></input>

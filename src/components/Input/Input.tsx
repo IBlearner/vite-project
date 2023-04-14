@@ -9,7 +9,9 @@ const Input = ({
     isRequired,
     value,
     handleInputChange,
-    handleKeyPress
+    handleKeyPress,
+    cols,
+    rows
 }: {
     label: string;
     inputType: string;
@@ -18,9 +20,29 @@ const Input = ({
     value: string;
     handleInputChange: ChangeEventHandler;
     handleKeyPress?: KeyboardEventHandler;
+    cols?: number;
+    rows?: number;
 }) => {
     const getInput = () => {
         switch (inputType) {
+            case InputTypes.textarea:
+                return (
+                    <div id={`input-${label}`} className="textarea">
+                        <label htmlFor={inputName} className="textarea-label">
+                            {label}
+                        </label>
+                        <textarea
+                            name={inputName}
+                            id={`input-${inputName}`}
+                            className="textarea-field"
+                            cols={cols ?? 30}
+                            rows={rows ?? 10}
+                            required={isRequired}
+                            value={value}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                );
             case InputTypes.tel:
                 return (
                     <div id={`input-${label}`} className="input">
@@ -36,7 +58,9 @@ const Input = ({
                             minLength={10}
                             maxLength={10}
                         />
-                        <label htmlFor={inputName} className="input-label">{label}</label>
+                        <label htmlFor={inputName} className="input-label">
+                            {label}
+                        </label>
                     </div>
                 );
             case InputTypes.email:
@@ -53,17 +77,15 @@ const Input = ({
                             required={isRequired}
                             onChange={handleInputChange}
                         />
-                        <label htmlFor={inputName} className="input-label">{label}</label>
+                        <label htmlFor={inputName} className="input-label">
+                            {label}
+                        </label>
                     </div>
                 );
         }
     };
 
-    return (
-        <React.Fragment>
-            {getInput()}
-        </React.Fragment>
-    );
+    return <React.Fragment>{getInput()}</React.Fragment>;
 };
 
 export default Input;
