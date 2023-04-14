@@ -1,6 +1,6 @@
 import { InputTypes } from "src/common/enums";
 import "./Input.scss";
-import { ChangeEventHandler, KeyboardEventHandler } from "react";
+import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
 
 const Input = ({
     label,
@@ -23,44 +23,46 @@ const Input = ({
         switch (inputType) {
             case InputTypes.tel:
                 return (
-                    <div id={`input-${label}`}>
-                        <label htmlFor={inputName}>{label}</label>
+                    <div id={`input-${label}`} className="input">
                         <input
                             type={inputType}
                             id={`input-${inputName}`}
+                            className="input-field"
                             name={inputName}
                             value={value}
                             required={isRequired}
-                            placeholder={`Please enter your ${inputName}`}
                             onChange={handleInputChange}
                             onKeyDown={handleKeyPress}
                             minLength={10}
                             maxLength={10}
                         />
+                        <label htmlFor={inputName} className="input-label">{label}</label>
                     </div>
                 );
             case InputTypes.email:
             case InputTypes.text:
             default:
                 return (
-                    <div id={`input-${label}`}>
-                        <label htmlFor={inputName}>{label}</label>
+                    <div id={`input-${label}`} className="input">
                         <input
                             type={inputType}
                             id={`input-${inputName}`}
+                            className="input-field"
                             name={inputName}
                             value={value}
                             required={isRequired}
-                            placeholder={`Please enter your ${inputName}`}
                             onChange={handleInputChange}
                         />
+                        <label htmlFor={inputName} className="input-label">{label}</label>
                     </div>
                 );
         }
     };
 
     return (
-        { getInput() }
+        <React.Fragment>
+            {getInput()}
+        </React.Fragment>
     );
 };
 

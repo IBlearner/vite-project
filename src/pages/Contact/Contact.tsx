@@ -87,7 +87,7 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                 />
                 <br />
                 <Input
-                    label="Contact number"
+                    label="Phone"
                     inputType={InputTypes.tel}
                     inputName="phone"
                     isRequired={true}
@@ -145,7 +145,6 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     cols={30}
                     rows={10}
                     required
-                    placeholder="Please enter up to 100 characters"
                     value={formData.message}
                     onChange={handleTextareaChange}
                 />
