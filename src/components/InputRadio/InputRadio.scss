@@ -1,38 +1,38 @@
-.input {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    margin-top: 65px;
-}
+// .input {
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     width: 100%;
+//     margin-top: 65px;
+// }
 
-.input-label {
-    position: absolute;
-    // Required to default at top: 0 so the transition works (without, uses "auto" and will not work)
-    bottom: 0;
+// .input-label {
+//     position: absolute;
+//     // Required to default at top: 0 so the transition works (without, uses "auto" and will not work)
+//     bottom: 0;
 
-    color: white;
-    background-color: #1a1a1a;
-    padding: 2px 6px;
+//     color: white;
+//     background-color: #1a1a1a;
+//     padding: 2px 6px;
 
-    transition: bottom 1s, background-color 3s, border-radius 2s;
-}
+//     transition: bottom 1s, background-color 3s, border-radius 2s;
+// }
 
-// Using the sibling adjacent selector to change the label if the field has focus
-.input-field:focus-visible + .input-label {
-    position: absolute;
+// // Using the sibling adjacent selector to change the label if the field has focus
+// .input-field:focus-visible + .input-label {
+//     position: absolute;
 
-    bottom: 28px;
-    color: white;
-    background-color: grey;
-    border-radius: 10px;
+//     bottom: 28px;
+//     color: white;
+//     background-color: grey;
+//     border-radius: 10px;
 
-    transition: bottom 1s, background-color 3s, border-radius 2s;
-}
+//     transition: bottom 1s, background-color 3s, border-radius 2s;
+// }
 
-.input-field {
-    bottom: 0;
-    position: absolute;
-    border: 1px solid #1a1a1a;
-    border-radius: 0;
-}
+// .input-field {
+//     bottom: 0;
+//     position: absolute;
+//     border: 1px solid #1a1a1a;
+//     border-radius: 0;
+// }

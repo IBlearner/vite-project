@@ -3,36 +3,44 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    margin-top: 65px;
+    margin-top: 30px;
+    height: 40px;
 }
 
 .input-label {
     position: absolute;
     // Required to default at top: 0 so the transition works (without, uses "auto" and will not work)
     bottom: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
 
     color: white;
     background-color: #1a1a1a;
     padding: 2px 6px;
+    // text-align: center;
 
-    transition: bottom 1s, background-color 3s, border-radius 2s;
+    transition: bottom 1s, background-color 2s, border-radius 2s, height 0.5s;
 }
 
 // Using the sibling adjacent selector to change the label if the field has focus
 .input-field:focus-visible + .input-label {
-    position: absolute;
+    bottom: 35px;
+    height: 50%;
 
-    bottom: 28px;
-    color: white;
     background-color: grey;
-    border-radius: 10px;
+    border-radius: 6px;
 
-    transition: bottom 1s, background-color 3s, border-radius 2s;
+    transition: bottom 1s, background-color 2s, border-radius 2s, height 0.5s;
 }
 
 .input-field {
     bottom: 0;
     position: absolute;
+    height: 100%;
+
     border: 1px solid #1a1a1a;
     border-radius: 0;
 }
