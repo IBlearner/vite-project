@@ -11,7 +11,8 @@
     position: absolute;
     // Required to default at top: 0 so the transition works (without, uses "auto" and will not work)
     bottom: 0;
-    height: 100%;
+    // 2px to accomodate the 1px thick border of the input-field it sits on
+    height: calc(100% - 2px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +21,13 @@
     color: white;
     background-color: #1a1a1a;
     padding: 2px 6px;
-    // text-align: center;
 
     transition: bottom 1s, background-color 2s, border-radius 2s, height 0.5s;
 }
 
 // Using the sibling adjacent selector to change the label if the field has focus
-.input-field:focus-visible + .input-label {
+.input-field:focus-visible + .input-label,
+.filled {
     bottom: 35px;
     height: 50%;
 
@@ -40,7 +41,54 @@
     bottom: 0;
     position: absolute;
     height: 100%;
+    // Need to specify as it will look differently on ios
+    padding: 0;
+}
 
+.input-field,
+.textarea-input-field {
     border: 1px solid #1a1a1a;
     border-radius: 0;
+    font-size: 20px;
+}
+
+.textarea {
+    position: relative;
+    width: 100%;
+}
+
+.textarea-input-field {
+    position: relative;
+    // 6px to accomodate the native 2px padding and 1px borders on each side of textarea
+    width: calc(100% - 2px);
+    padding: 12px 0;
+}
+
+.textarea-label {
+    position: absolute;
+    // Required to default at top: 0 so the transition works (without, uses "auto" and will not work)
+    top: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0;
+
+    color: white;
+    background-color: #1a1a1a;
+
+    transition: bottom 1s, background-color 2s, border-radius 2s, height 0.5s;
+}
+
+// Using the sibling adjacent selector to change the label if the field has focus
+.textarea-input-field:focus-visible + .textarea-label,
+.textarea-filled {
+    top: -15px;
+    height: 20px;
+
+    background-color: grey;
+    border-radius: 6px;
+
+    transition: top 1s, background-color 2s, border-radius 2s, height 0.5s;
 }

@@ -8,6 +8,7 @@ const Input = ({
     inputName,
     isRequired,
     value,
+    cssClass,
     handleInputChange,
     handleKeyPress,
     cols,
@@ -18,6 +19,7 @@ const Input = ({
     inputName: string;
     isRequired: boolean;
     value: string;
+    cssClass: string;
     handleInputChange: ChangeEventHandler;
     handleKeyPress?: KeyboardEventHandler;
     cols?: number;
@@ -28,19 +30,19 @@ const Input = ({
             case InputTypes.textarea:
                 return (
                     <div id={`textarea-${inputName}`} className="textarea">
-                        <label htmlFor={inputName} className="textarea-label">
-                            {label}
-                        </label>
                         <textarea
                             name={inputName}
                             id={`textarea-${inputName}`}
-                            className="textarea-field"
+                            className="textarea-input-field"
                             cols={cols ?? 30}
                             rows={rows ?? 10}
                             required={isRequired}
                             value={value}
                             onChange={handleInputChange}
                         />
+                        <label htmlFor={inputName} className={"textarea-label" + cssClass}>
+                            {label}
+                        </label>
                     </div>
                 );
             case InputTypes.tel:
@@ -58,7 +60,7 @@ const Input = ({
                             minLength={10}
                             maxLength={10}
                         />
-                        <label htmlFor={inputName} className="input-label">
+                        <label htmlFor={inputName} className={"input-label" + cssClass}>
                             {label}
                         </label>
                     </div>
@@ -71,13 +73,13 @@ const Input = ({
                         <input
                             type={inputType}
                             id={`input-${inputName}`}
-                            className="input-field"
+                            className={"input-field"}
                             name={inputName}
                             value={value}
                             required={isRequired}
                             onChange={handleInputChange}
                         />
-                        <label htmlFor={inputName} className="input-label">
+                        <label htmlFor={inputName} className={"input-label" + cssClass}>
                             {label}
                         </label>
                     </div>

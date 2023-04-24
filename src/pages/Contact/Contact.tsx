@@ -42,8 +42,25 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
     const [formRecieved, setFormRecieved] = useState<boolean>(false);
     const [keyDown, setKeyDown] = useState<string>("");
 
+    // For inputs to know what css classes they should inherit
+    const [inputNameCssClass, setInputNameCssClass] = useState<string>("");
+    const [inputEmailCssClass, setInputEmailCssClass] = useState<string>("");
+    const [inputPhoneCssClass, setInputPhoneCssClass] = useState<string>("");
+    const [inputMessageCssClass, setInputMessageCssClass] = useState<string>("");
+
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log(event);
+        console.log(event.target);
+
+        // Assigning css classes to inputs based on if they'd been populated
+        if (event.target.name === "name") {
+            event.target.value ? setInputNameCssClass(" filled") : setInputNameCssClass(" empty");
+        }
+        if (event.target.name === "email") {
+            event.target.value ? setInputEmailCssClass(" filled") : setInputEmailCssClass(" empty");
+        }
+        if (event.target.name === "phone") {
+            event.target.value ? setInputPhoneCssClass(" filled") : setInputPhoneCssClass(" empty");
+        }
 
         // Phone number validation
         if (event.target.name === "phone") {
@@ -56,8 +73,10 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
     };
 
     const handleTextareaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        console.log(event.target.value);
-        console.log(event.target.name);
+        // Assigning css classes to textarea based on if they'd been populated
+        if (event.target.name === "message") {
+            event.target.value ? setInputMessageCssClass(" textarea-filled") : setInputMessageCssClass(" textarea-empty");
+        }
 
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
@@ -103,6 +122,7 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     inputName="name"
                     isRequired={true}
                     value={formData.name}
+                    cssClass={inputNameCssClass}
                     handleInputChange={handleInputChange}
                 />
                 <Input
@@ -111,6 +131,7 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     inputName="email"
                     isRequired={true}
                     value={formData.email}
+                    cssClass={inputEmailCssClass}
                     handleInputChange={handleInputChange}
                 />
                 <Input
@@ -119,6 +140,7 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     inputName="phone"
                     isRequired={true}
                     value={formData.phone}
+                    cssClass={inputPhoneCssClass}
                     handleInputChange={handleInputChange}
                     handleKeyPress={handleKeyPress}
                 />
@@ -138,12 +160,13 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
                     inputName="message"
                     isRequired={true}
                     value={formData.message}
+                    cssClass={inputMessageCssClass}
                     handleInputChange={handleTextareaChange}
                     cols={30}
                     rows={10}
                 />
                 <br />
-                <input type="submit" value="Submit"></input>
+                <input className="primary-button" type="submit" value="Submit"></input>
             </form>
         );
     };

@@ -38,12 +38,12 @@ const InputRadio = ({
     return (
         <React.Fragment>
             {/* TODO: Testing to see if the htmlFor should belong to the input-radio group outer level or the options inside.. */}
-            <label htmlFor={`input-radio-${inputName}`} className="textarea-label">
+            {/* <label htmlFor={`input-radio-${inputName}`} className="textarea-label">
                 {label}
             </label>
             <div id={`input-radio-${inputName}`} className="input-radio">
                 {getMappedRadios()}
-            </div>
+            </div> */}
         </React.Fragment>
     );
 };
