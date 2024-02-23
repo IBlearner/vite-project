@@ -51,9 +51,9 @@ const Services = ({
 
             {getServicesItem(servicesSpecificContent.thanksai, "jpg")}
 
-            {getServicesItem(servicesSpecificContent.solar)}
-
             {getServicesItem(servicesSpecificContent.oriflame, "png")}
+
+            {getServicesItem(servicesSpecificContent.solar, "png")}
         </div>
     );
 };
