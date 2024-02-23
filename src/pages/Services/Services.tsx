@@ -1,5 +1,5 @@
 import "./Services.scss";
-import { IGeneralPageContent, IContactFormPrefill } from "src/common/interfaces";
+import { IGeneralPageContent, IContactFormPrefill, IServiceContent } from "src/common/interfaces";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { servicesSpecificContent } from "src/common/constants";
 import { Languages } from "src/common/enums";
@@ -20,6 +20,21 @@ const Services = ({
         setPage("contact");
     };
 
+    const getServicesItem = (serviceSpecificContent: IServiceContent, imgExtension: string = "png") => {
+        return (
+            <div className={"services-item " + serviceSpecificContent.name}>
+                <img className="services-image" src={`/${serviceSpecificContent.name}.${imgExtension}`} alt={serviceSpecificContent.friendlyName} />
+                <p>{language === Languages.english ? serviceSpecificContent.description.en : serviceSpecificContent.description.vn}</p>
+                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: `${serviceSpecificContent.name}` })}>
+                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
+                    <span className="services-button-arrow">
+                        <FaLongArrowAltRight />
+                    </span>
+                </button>
+            </div>
+        );
+    };
+
     return (
         <div>
             <div className="services-heading">
@@ -27,65 +42,18 @@ const Services = ({
                 <img className="heading_underline" src="/heading_underline.png" alt={"TODO"} />
             </div>
 
-            <div className={"services-item " + servicesSpecificContent.driving.name}>
-                <img className="services-image" src="/driving.png" alt={servicesSpecificContent.driving.friendlyName} />
-                <p>{language === Languages.english ? servicesSpecificContent.driving.description.en : servicesSpecificContent.driving.description.vn}</p>
-                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: "driving" })}>
-                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
-                    <span className="services-button-arrow">
-                        <FaLongArrowAltRight />
-                    </span>
-                </button>
-            </div>
+            {getServicesItem(servicesSpecificContent.driving, "png")}
 
             <div className="services-heading">
                 <h2>{language === Languages.english ? servicesSpecificContent.subheading.en : servicesSpecificContent.subheading.vn}</h2>
                 <img className="heading_underline" src="/heading_underline.png" alt={"TODO"} />
             </div>
 
-            <div className={"services-item " + servicesSpecificContent.thanksai.name}>
-                <img className="services-image" src="/thanksai.jpg" alt={servicesSpecificContent.thanksai.friendlyName} />
-                <p>{language === Languages.english ? servicesSpecificContent.thanksai.description.en : servicesSpecificContent.thanksai.description.vn}</p>
-                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: servicesSpecificContent.thanksai.name })}>
-                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
-                    <span className="services-button-arrow">
-                        <FaLongArrowAltRight />
-                    </span>
-                </button>
-            </div>
+            {getServicesItem(servicesSpecificContent.thanksai, "jpg")}
 
-            <div className={"services-item " + servicesSpecificContent.solar.name}>
-                <img className="services-image" src="/TODO.gif" alt={servicesSpecificContent.solar.friendlyName} />
-                <p>{language === Languages.english ? servicesSpecificContent.solar.description.en : servicesSpecificContent.solar.description.vn}</p>
-                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: servicesSpecificContent.solar.name })}>
-                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
-                    <span className="services-button-arrow">
-                        <FaLongArrowAltRight />
-                    </span>
-                </button>
-            </div>
+            {getServicesItem(servicesSpecificContent.solar)}
 
-            <div className={"services-item " + servicesSpecificContent.quiari.name}>
-                <img className="services-image" src="/quiari.png" alt={servicesSpecificContent.quiari.friendlyName} />
-                <p>{language === Languages.english ? servicesSpecificContent.quiari.description.en : servicesSpecificContent.quiari.description.vn}</p>
-                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: servicesSpecificContent.quiari.name })}>
-                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
-                    <span className="services-button-arrow">
-                        <FaLongArrowAltRight />
-                    </span>
-                </button>
-            </div>
-
-            <div className={"services-item " + servicesSpecificContent.herbalife.name}>
-                <img className="services-image" src="/herbalife.png" alt={servicesSpecificContent.herbalife.friendlyName} />
-                <p>{language === Languages.english ? servicesSpecificContent.herbalife.description.en : servicesSpecificContent.herbalife.description.vn}</p>
-                <button className="primary-button services-button" onClick={() => navigateToContactPage({ enquiring: servicesSpecificContent.herbalife.name })}>
-                    {language === Languages.english ? servicesSpecificContent.contactMeText.en : servicesSpecificContent.contactMeText.vn}
-                    <span className="services-button-arrow">
-                        <FaLongArrowAltRight />
-                    </span>
-                </button>
-            </div>
+            {getServicesItem(servicesSpecificContent.oriflame, "png")}
         </div>
     );
 };
