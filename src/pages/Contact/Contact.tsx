@@ -184,6 +184,12 @@ const Contact = ({ generalContent, formPrefill, language }: { generalContent: IG
         <div>
             <h1>{language === Languages.english ? generalContent.heading.en : generalContent.heading.vn}</h1>
             <p>{language === Languages.english ? generalContent.description.en : generalContent.description.vn}</p>
+            <p>
+                <strong>Email:</strong> ductinh@gmail.com
+            </p>
+            <p>
+                <strong>Phone:</strong> 0413 287 896
+            </p>
             <h2>{language === Languages.english ? contactSpecificContent.subheading.en : contactSpecificContent.subheading.vn}</h2>
             <p>{language === Languages.english ? contactSpecificContent.text1.en : contactSpecificContent.text1.vn}</p>
             <div id="form-field">{!formRecieved ? messageForm() : submitConfirmationMessage()}</div>
